@@ -1,0 +1,38 @@
+#include <reg51.h>
+
+void delay(void);  // Function prototype
+
+// Lookup table for 7-segment codes (Common Cathode)
+unsigned char codes[] = {
+    0x3F,  // 0
+    0x06,  // 1
+    0x5B,  // 2
+    0x4F,  // 3
+    0x66,  // 4
+    0x6D,  // 5
+    0x7D,  // 6
+    0x07,  // 7
+    0x7F,  // 8
+    0x6F   // 9
+};
+
+void main(void) {
+    unsigned char i;
+
+    while (1) {
+        for (i = 0; i < 10; i++) {
+            P2 = codes[i];  // Send 7-segment code to Port 2
+            delay();        // Wait before next digit
+        }
+    }
+}
+
+// Simple software delay function
+void delay(void) {
+    unsigned int i, j;
+    for (i = 0; i < 100; i++) {
+        for (j = 0; j < 1275; j++) {
+            ; // Do nothing, just waste time
+        }
+    }
+}

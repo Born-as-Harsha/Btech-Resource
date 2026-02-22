@@ -1,0 +1,40 @@
+#include <reg51.h>  
+
+sbit segA = P2^0;
+sbit segB = P2^1;
+sbit segC = P2^2;
+sbit segD = P2^3;
+sbit segE = P2^4;
+sbit segF = P2^5;
+sbit segG = P2^6;
+sbit segDP = P2^7;
+
+void displayDigit(unsigned char digit) {
+    unsigned char segmentPatterns[10] = {
+        0xC0, // 0
+        0xF9, // 1
+        0xA4, // 2
+        0xB0, // 3
+        0x99, // 4
+        0x92, // 5
+        0x82, // 6
+        0xF8, // 7
+        0x80, // 8
+        0x90  // 9
+    };
+    P1 = segmentPatterns[digit]; 
+}
+
+// Main function
+void main() {
+    unsigned int delay;        
+    unsigned char digit;
+
+    while (1) {
+        for (digit = 0; digit <= 9; ++digit) {
+            displayDigit(digit);
+            
+            for (delay = 0; delay < 50000; ++delay); 
+        }
+    }
+}
