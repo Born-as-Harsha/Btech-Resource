@@ -1,0 +1,93 @@
+P&C TOPICS
+
+CO - 1
+
+1. 8086 Architecture  
+
+2. 8086 Memory Organization  
+
+3. Register Set and Data Movement  
+
+4. 8086 Pin Diagram (ALM-1)  
+
+5. Timing Diagram for Minimum/Maximum Mode (Flipped Topic)  
+
+6. Addressing Modes of 8086  
+
+7. Instruction Set & Its Types  
+
+8. Arithmetic and Logical Operation  
+
+9. 8086 ALU Programming and Examples (ALM-2)  
+
+---
+
+CO - 2
+
+10. Introduction to the 8051 Microcontroller  
+
+11. 8051 Microcontroller: Pin Diagram  
+
+12. 8051 Microcontroller: Architecture (ALM-3)  
+
+13. Memory Organization of 8051  
+
+14. I/O Ports and Interfacing - 8051 (Flipped Topic)  
+
+15. 8051 Addressing Modes  
+
+16. 8051 Instruction Set  
+
+17. 8051 Timers/Counters  
+
+18. Serial Port Assembly Level Programming  
+
+19. 8051 Interrupts (ALM-4)  
+
+---
+
+CO - 3
+
+20. Introduction to 8051 Interfacing  
+
+21. GPIO Interfacing (Flipped Topic)  
+
+22. Timers & Interfacing Seven Segment  
+
+23. LCD Interfacing (ALM-5)  
+
+24. Motor Interfacing - 8051  
+
+25. Stepper Motor Interfacing  
+
+26. ADC Interfacing with 8051  
+
+27. DAC Interfacing with 8051  
+
+28. Keypad Interfacing  
+
+29. Case Studies: Traffic Signal, Home Automation & Industrial Applications (ALM-6 & Home Assignment)  
+
+---
+
+CO - 4
+
+30. Introduction to PIC Microcontrollers  
+
+31. PIC Architecture (Flipped Topic)  
+
+32. Timer/Counter and PWM  
+
+33. Introduction to ARM Microcontrollers and Evolution of ARM (ALM-7)  
+
+34. ARM Features & ARM Series of Microcontrollers  
+
+35. Architecture of ARM Microcontroller (ALM-8)  
+
+36. Memory Organization & Basic Concepts of Pipeline Processing  
+
+37. ARM Processor Modes  
+
+38. Special Registers and Exception Handling  
+
+39. ARM and Thumb Modes of Execution (Home Assignment-4)  
