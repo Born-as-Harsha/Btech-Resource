@@ -1,0 +1,20 @@
+org 0h
+mov p2,#00h 
+main: mov dptr,#codes 
+back: clr a 
+movc a,@a+dptr
+jz next 
+mov p2,a
+acall delay 
+inc dptr
+sjmp back 
+next: sjmp main 
+delay: mov r0,#01h
+here1:mov r1,#02h
+here:djnz r1,here 
+djnz r0,here1 
+ret 
+ codes: db 5Bh,66h,3Fh,3Fh,3Fh,66h,3Fh,66h,6Dh,66h,0
+
+
+end
