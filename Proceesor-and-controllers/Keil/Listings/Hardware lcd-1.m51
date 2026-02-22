@@ -1,0 +1,125 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/05/2025  08:30:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Hardwarelcd.obj TO .\Objects\Hardware lcd-1 PRINT (.\Listings\Hardware lcd-1.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Hardwarelcd.obj (HARDWARELCD)
+
+
+LINK MAP OF MODULE:  .\Objects\Hardware lcd-1 (HARDWARELCD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     008BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Hardware lcd-1 (HARDWARELCD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        HARDWARELCD
+  C:0000H         SYMBOL        AGAIN
+  C:0068H         SYMBOL        COMMAND
+  C:007EH         SYMBOL        DELAY
+  C:0084H         SYMBOL        HERE
+  C:0082H         SYMBOL        HERE1
+  C:0080H         SYMBOL        HERE2
+  C:0073H         SYMBOL        NEXT
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         4
+  C:0002H         LINE#         5
+  C:0004H         LINE#         6
+  C:0006H         LINE#         7
+  C:0008H         LINE#         8
+  C:000AH         LINE#         9
+  C:000CH         LINE#         10
+  C:000EH         LINE#         11
+  C:0010H         LINE#         12
+  C:0012H         LINE#         13
+  C:0014H         LINE#         14
+  C:0016H         LINE#         15
+  C:0018H         LINE#         16
+  C:001AH         LINE#         17
+  C:001CH         LINE#         18
+  C:001EH         LINE#         19
+  C:0020H         LINE#         20
+  C:0022H         LINE#         21
+  C:0024H         LINE#         22
+  C:0026H         LINE#         23
+  C:0028H         LINE#         24
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/05/2025  08:30:25  PAGE 2
+
+
+  C:002AH         LINE#         25
+  C:002CH         LINE#         26
+  C:002EH         LINE#         27
+  C:0030H         LINE#         28
+  C:0032H         LINE#         29
+  C:0034H         LINE#         30
+  C:0036H         LINE#         31
+  C:0038H         LINE#         32
+  C:003AH         LINE#         33
+  C:003CH         LINE#         34
+  C:003EH         LINE#         35
+  C:0040H         LINE#         36
+  C:0042H         LINE#         37
+  C:0044H         LINE#         38
+  C:0046H         LINE#         39
+  C:0048H         LINE#         40
+  C:004AH         LINE#         41
+  C:004CH         LINE#         42
+  C:004EH         LINE#         43
+  C:0050H         LINE#         44
+  C:0052H         LINE#         45
+  C:0054H         LINE#         46
+  C:0056H         LINE#         47
+  C:0058H         LINE#         48
+  C:005AH         LINE#         49
+  C:005CH         LINE#         50
+  C:005EH         LINE#         51
+  C:0060H         LINE#         52
+  C:0062H         LINE#         53
+  C:0064H         LINE#         54
+  C:0066H         LINE#         55
+  C:0068H         LINE#         58
+  C:006AH         LINE#         59
+  C:006CH         LINE#         61
+  C:006EH         LINE#         62
+  C:0070H         LINE#         63
+  C:0072H         LINE#         64
+  C:0073H         LINE#         66
+  C:0075H         LINE#         67
+  C:0077H         LINE#         69
+  C:0079H         LINE#         70
+  C:007BH         LINE#         71
+  C:007DH         LINE#         72
+  C:007EH         LINE#         75
+  C:0080H         LINE#         76
+  C:0082H         LINE#         77
+  C:0084H         LINE#         78
+  C:0086H         LINE#         79
+  C:0088H         LINE#         80
+  C:008AH         LINE#         81
+  -------         ENDMOD        HARDWARELCD
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008BH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=139
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/05/2025  08:30:25  PAGE 3
+
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

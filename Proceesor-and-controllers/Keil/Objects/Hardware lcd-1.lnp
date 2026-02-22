@@ -1,0 +1,3 @@
+".\Objects\Hardwarelcd.obj" 
+TO ".\Objects\Hardware lcd-1" 
+PRINT(".\Listings\Hardware lcd-1.m51")

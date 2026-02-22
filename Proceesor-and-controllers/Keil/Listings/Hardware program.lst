@@ -1,0 +1,161 @@
+A51 MACRO ASSEMBLER  HARDWARE_PROGRAM                                                     11/05/2025 08:11:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Hardware program.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Hardware program SET(SMALL) DEBUG PRINT(.\Listings\Hardware program.lst
+                      ) OBJECT(.\Objects\Hardware program.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000                   2     AGAIN:
+0000 7438              3     MOV A,#38H
+0002 11B1              4     ACALL COMMAND
+0004 11CB              5     ACALL DELAY
+0006 740E              6     MOV A,#0EH
+0008 11B1              7     ACALL COMMAND
+000A 11CB              8     ACALL DELAY
+000C 7401              9     MOV A,#01H
+000E 11B1             10     ACALL COMMAND
+0010 11CB             11     ACALL DELAY
+0012 7406             12     MOV A,#06H
+0014 11B1             13     ACALL COMMAND
+0016 11CB             14     ACALL DELAY
+                      15     
+0018 7480             16     MOV A,#80H
+001A 11B1             17     ACALL COMMAND
+001C 11CB             18     ACALL DELAY
+                      19     
+001E 7448             20     MOV A,#'H'
+0020 11BE             21     ACALL NEXT
+0022 11CB             22     ACALL DELAY
+0024 7461             23     MOV A,#'a'
+0026 11BE             24     ACALL NEXT
+0028 11CB             25     ACALL DELAY
+002A 7472             26     MOV A,#'r'
+002C 11BE             27     ACALL NEXT
+002E 11CB             28     ACALL DELAY
+0030 7473             29     MOV A,#'s'
+0032 11BE             30     ACALL NEXT
+0034 11CB             31     ACALL DELAY
+0036 7468             32     MOV A,#'h'
+0038 11BE             33     ACALL NEXT
+003A 11CB             34     ACALL DELAY
+003C 7461             35     MOV A,#'a'
+003E 11BE             36     ACALL NEXT
+0040 11CB             37     ACALL DELAY
+0042 7476             38     MOV A,#'v'
+0044 11BE             39     ACALL NEXT
+0046 11CB             40     ACALL DELAY
+0048 7461             41     MOV A,#'a'
+004A 11BE             42     ACALL NEXT
+004C 11CB             43     ACALL DELAY
+004E 7472             44     MOV A,#'r'
+0050 11BE             45     ACALL NEXT
+0052 11CB             46     ACALL DELAY
+0054 7464             47     MOV A,#'d'
+0056 11BE             48     ACALL NEXT
+0058 11CB             49     ACALL DELAY
+005A 7468             50     MOV A,#'h'
+005C 11BE             51     ACALL NEXT
+005E 11CB             52     ACALL DELAY
+0060 7461             53     MOV A,#'a'
+0062 11BE             54     ACALL NEXT
+0064 11CB             55     ACALL DELAY
+0066 746E             56     MOV A,#'n'
+0068 11BE             57     ACALL NEXT
+A51 MACRO ASSEMBLER  HARDWARE_PROGRAM                                                     11/05/2025 08:11:36 PAGE     2
+
+006A 11CB             58     ACALL DELAY
+006C 74C0             59     MOV A,#0C0H
+006E 11B1             60     ACALL COMMAND
+0070 11CB             61     ACALL DELAY
+                      62     
+                      63     
+0072 7432             64     MOV A,#'2'
+0074 11BE             65     ACALL NEXT
+0076 11CB             66     ACALL DELAY
+0078 7434             67     MOV A,#'4'
+007A 11BE             68     ACALL NEXT
+007C 11CB             69     ACALL DELAY
+007E 7430             70     MOV A,#'0'
+0080 11BE             71     ACALL NEXT
+0082 11CB             72     ACALL DELAY
+0084 7430             73     MOV A,#'0'
+0086 11BE             74     ACALL NEXT
+0088 11CB             75     ACALL DELAY
+008A 7430             76     MOV A,#'0'
+008C 11BE             77     ACALL NEXT
+008E 11CB             78     ACALL DELAY
+0090 7434             79     MOV A,#'4'
+0092 11BE             80     ACALL NEXT
+0094 11CB             81     ACALL DELAY
+0096 7430             82     MOV A,#'0'
+0098 11BE             83     ACALL NEXT
+009A 11CB             84     ACALL DELAY
+009C 7434             85     MOV A,#'4'
+009E 11BE             86     ACALL NEXT
+00A0 11CB             87     ACALL DELAY
+00A2 7435             88     MOV A,#'5'
+00A4 11BE             89     ACALL NEXT
+00A6 11CB             90     ACALL DELAY
+00A8 7434             91     MOV A,#'4'
+00AA 11BE             92     ACALL NEXT
+00AC 11CB             93     ACALL DELAY
+                      94     
+00AE 020000           95     LJMP AGAIN
+                      96     
+                      97     
+                      98     
+00B1                  99     COMMAND:
+00B1 F590            100     MOV P1,A
+00B3 C2A0            101     CLR P2.0
+00B5 C2A1            102     CLR P2.1
+00B7 D2A2            103     SETB P2.2
+00B9 11CB            104     ACALL DELAY
+00BB C2A2            105     CLR P2.2
+00BD 22              106     RET
+                     107     
+00BE                 108     NEXT:
+00BE F590            109     MOV P1,A
+00C0 D2A0            110     SETB P2.0
+00C2 C2A1            111     CLR P2.1
+00C4 D2A2            112     SETB P2.2
+00C6 11CB            113     ACALL DELAY
+00C8 C2A2            114     CLR P2.2
+00CA 22              115     RET
+                     116     
+00CB                 117     DELAY:
+00CB 7B05            118     MOV R3,#05h
+00CD 7C07            119     HERE2: MOV R4,#07h
+00CF DCFE            120     HERE: DJNZ R4,HERE
+00D1 DBFA            121     DJNZ R3,HERE2
+00D3 22              122     RET
+                     123     
+A51 MACRO ASSEMBLER  HARDWARE_PROGRAM                                                     11/05/2025 08:11:36 PAGE     3
+
+                     124     END
+                             
+A51 MACRO ASSEMBLER  HARDWARE_PROGRAM                                                     11/05/2025 08:11:36 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0000H   A   
+COMMAND. . . . . .  C ADDR   00B1H   A   
+DELAY. . . . . . .  C ADDR   00CBH   A   
+HERE . . . . . . .  C ADDR   00CFH   A   
+HERE2. . . . . . .  C ADDR   00CDH   A   
+NEXT . . . . . . .  C ADDR   00BEH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

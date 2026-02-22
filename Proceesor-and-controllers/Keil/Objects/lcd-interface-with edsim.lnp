@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lcd-interface test-1.obj" 
+TO ".\Objects\lcd-interface-with edsim" 
+PRINT(".\Listings\lcd-interface-with edsim.m51")

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\harshaprogram.obj" 
+TO ".\Objects\Harsha-project" 
+PRINT(".\Listings\Harsha-project.m51")

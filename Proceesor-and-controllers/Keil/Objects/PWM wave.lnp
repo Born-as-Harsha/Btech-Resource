@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\PWM program.obj" 
+TO ".\Objects\PWM wave" 
+PRINT(".\Listings\PWM wave.m51")

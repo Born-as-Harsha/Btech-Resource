@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lab2.obj" 
+TO ".\Objects\led-interface" 
+PRINT(".\Listings\led-interface.m51")

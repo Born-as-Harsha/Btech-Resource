@@ -1,0 +1,116 @@
+C51 COMPILER V9.60.7.0   LCD_INTERFACE_TEST_1                                              09/24/2025 13:35:52 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD_INTERFACE_TEST_1
+OBJECT MODULE PLACED IN .\Objects\lcd-interface test-1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE lcd-interface test-1 OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\lcd-interface test-1.lst) TABS(2) OBJECT(.\Objects\lcd-interface test-1.obj)
+
+line level    source
+
+   1          #include <REG51.H>
+   2          
+   3          // Pin configuration
+   4          sbit RS = P1^3;   // RS pin
+   5          sbit EN = P1^2;   // Enable pin
+   6          sbit D4 = P1^4;   // LCD Data4
+   7          sbit D5 = P1^5;   // LCD Data5
+   8          sbit D6 = P1^6;   // LCD Data6
+   9          sbit D7 = P1^7;   // LCD Data7
+  10          
+  11          // Function prototypes
+  12          void lcdcmd(unsigned char);
+  13          void lcddata(unsigned char);
+  14          void lcdstr(unsigned char *);
+  15          void delay(unsigned int);
+  16          void lcd_nibble(unsigned char);
+  17          void pulse(void);
+  18          
+  19          void main() {
+  20   1          // Initialization sequence (same as Assembly)
+  21   1          lcdcmd(0x28);   // Function set: 4-bit, 2 line, 5x7 dots
+  22   1          lcdcmd(0x0F);   // Display ON, cursor ON, blinking ON
+  23   1          lcdcmd(0x06);   // Entry mode set: increment, shift right
+  24   1          lcdcmd(0x01);   // Clear display
+  25   1          lcdcmd(0x84);   // Set cursor at beginning of first line
+  26   1      
+  27   1          // Display string
+  28   1          lcdstr("WELCOME TO");
+  29   1          lcdcmd(0xC6);
+  30   1          lcdstr("p&C");
+  31   1          
+  32   1        
+  33   1      
+  34   1          while(1);       // Infinite loop
+  35   1      }
+  36          
+  37          // Function to send command
+  38          void lcdcmd(unsigned char cmd) {
+  39   1          RS = 0;                        // Instruction register
+  40   1      
+  41   1          lcd_nibble(cmd >> 4);          // Send higher nibble
+  42   1          pulse();
+  43   1      
+  44   1          lcd_nibble(cmd & 0x0F);        // Send lower nibble
+  45   1          pulse();
+  46   1      
+  47   1          delay(2);
+  48   1      }
+  49          
+  50          // Function to send data (character)
+  51          void lcddata(unsigned char dat) {
+  52   1          RS = 1;                        // Data register
+  53   1      
+  54   1          lcd_nibble(dat >> 4);          // Send higher nibble
+C51 COMPILER V9.60.7.0   LCD_INTERFACE_TEST_1                                              09/24/2025 13:35:52 PAGE 2   
+
+  55   1          pulse();
+  56   1      
+  57   1          lcd_nibble(dat & 0x0F);        // Send lower nibble
+  58   1          pulse();
+  59   1      
+  60   1          delay(2);
+  61   1      }
+  62          
+  63          // Function to display string
+  64          void lcdstr(unsigned char *s) {
+  65   1          while(*s) {
+  66   2              lcddata(*s++);
+  67   2          }
+  68   1      }
+  69          
+  70          // Send 4-bit nibble to P1.4–P1.7
+  71          void lcd_nibble(unsigned char nib) {
+  72   1          D4 = (nib & 0x01);
+  73   1          D5 = (nib & 0x02) >> 1;
+  74   1          D6 = (nib & 0x04) >> 2;
+  75   1          D7 = (nib & 0x08) >> 3;
+  76   1      }
+  77          
+  78          // Generate enable pulse
+  79          void pulse(void) {
+  80   1          EN = 1;
+  81   1          delay(1);
+  82   1          EN = 0;
+  83   1      }
+  84          
+  85          // Delay function
+  86          void delay(unsigned int x) {
+  87   1          unsigned int i, j;
+  88   1          for(i=0; i<x; i++)
+  89   1              for(j=0; j<1275; j++);
+  90   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    232    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

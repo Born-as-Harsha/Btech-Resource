@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  HARDWARELCD                                                          11/05/2025 08:30:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Hardwarelcd.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Hardwarelcd SET(SMALL) DEBUG PRINT(.\Listings\Hardwarelcd.lst) OBJECT(.
+                      \Objects\Hardwarelcd.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; LCD
+0000                   2     ORG 00H
+0000                   3     AGAIN:
+0000 7438              4     MOV A,#38H
+0002 1168              5     ACALL COMMAND
+0004 117E              6     ACALL DELAY
+0006 740E              7     MOV A,#0EH
+0008 1168              8     ACALL COMMAND
+000A 117E              9     ACALL DELAY
+000C 7401             10     MOV A,#01H
+000E 1168             11     ACALL COMMAND
+0010 117E             12     ACALL DELAY
+0012 7406             13     MOV A,#06H
+0014 1168             14     ACALL COMMAND
+0016 117E             15     ACALL DELAY
+0018 7480             16     MOV A,#80H
+001A 1168             17     ACALL COMMAND
+001C 117E             18     ACALL DELAY
+001E 744E             19     MOV A,#'N'
+0020 1173             20     ACALL NEXT
+0022 117E             21     ACALL DELAY
+0024 7420             22     MOV A,#' '
+0026 1173             23     ACALL NEXT
+0028 117E             24     ACALL DELAY
+002A 7450             25     MOV A,#'P'
+002C 1173             26     ACALL NEXT
+002E 117E             27     ACALL DELAY
+0030 7452             28     MOV A,#'R'
+0032 1173             29     ACALL NEXT
+0034 117E             30     ACALL DELAY
+0036 7441             31     MOV A,#'A'
+0038 1173             32     ACALL NEXT
+003A 117E             33     ACALL DELAy
+003C 7442             34     MOV A,#'B'
+003E 1173             35     ACALL NEXT
+0040 117E             36     ACALL DELAY
+0042 7441             37     MOV A,#'A'
+0044 1173             38     ACALL NEXT
+0046 117E             39     ACALL DELAY
+0048 744B             40     MOV A,#'K'
+004A 1173             41     ACALL NEXT
+004C 117E             42     ACALL DELAY
+004E 7441             43     MOV A,#'A'
+0050 1173             44     ACALL NEXT
+0052 117E             45     ACALL DELAY
+0054 7452             46     MOV A,#'R'
+0056 1173             47     ACALL NEXT
+0058 117E             48     ACALL DELAY
+005A 7441             49     MOV A,#'A'
+005C 1173             50     ACALL NEXT
+005E 117E             51     ACALL DELAY
+0060 744E             52     MOV A,#'N'
+0062 1173             53     ACALL NEXT
+0064 117E             54     ACALL DELAY
+0066 8098             55     SJMP AGAIN
+                      56     
+0068                  57     COMMAND:
+A51 MACRO ASSEMBLER  HARDWARELCD                                                          11/05/2025 08:30:25 PAGE     2
+
+0068 F590             58     MOV P1,A
+006A C286             59     CLR P0.6
+                      60     ;CLR P0.5
+006C D287             61     SETB P0.7
+006E 117E             62     ACALL DELAY
+0070 C287             63     CLR P0.7
+0072 22               64     RET
+0073                  65     NEXT:
+0073 F590             66     MOV P1,A
+0075 D286             67     SETB P0.6
+                      68     ;CLR P0.5
+0077 D287             69     SETB P0.7
+0079 117E             70     ACALL DELAY
+007B C287             71     CLR P0.7
+007D 22               72     RET
+                      73     
+007E                  74     DELAY:
+007E 7BFF             75     MOV R3,#0FFh
+0080 7C1F             76     HERE2:MOV R4,#01Fh
+0082 790F             77     HERE1:MOV R1,#0FH
+0084 D9FE             78     HERE:DJNZ R1,HERE
+0086 DCFA             79     DJNZ R4,HERE1
+0088 DBF6             80     DJNZ R3,HERE2
+008A 22               81     RET
+*** WARNING #A41 IN 81 (Hardwarelcd, LINE 81): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  HARDWARELCD                                                          11/05/2025 08:30:25 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0000H   A   
+COMMAND. . . . . .  C ADDR   0068H   A   
+DELAY. . . . . . .  C ADDR   007EH   A   
+HERE . . . . . . .  C ADDR   0084H   A   
+HERE1. . . . . . .  C ADDR   0082H   A   
+HERE2. . . . . . .  C ADDR   0080H   A   
+NEXT . . . . . . .  C ADDR   0073H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
