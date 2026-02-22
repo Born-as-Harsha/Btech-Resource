@@ -1,0 +1,17 @@
+clear all; close all; clc;
+t = -1:0.001:5;
+x = exp(-2*t).*us(t,0);
+h = us(t,0);h = double(h);
+y = (0.002)*conv(x,h);
+% y = us(t,0)-exp(-2*t).*us(t,0);
+t2 = -2:0.001:10;
+figure();
+subplot(3,1,1);plot(t, x,'b','LineWidth',3);
+xlabel('time ----->');ylabel('Amplitude ----->');
+title('x(t)'); axis([-1 5 -0.2 1.2]);
+subplot(3,1,2);plot(t, h,'k','LineWidth',3);
+xlabel('time ----->');ylabel('Amplitude ----->');
+title('h(t)');axis([-1 5 -0.2 1.2]);
+subplot(3,1,3);plot(t2, y,'r','LineWidth',3);
+xlabel('time ----->');ylabel('Amplitude ----->');
+title('y(t)=x(t)*h(t)');axis([-1 5 -0.2 1.2]);
