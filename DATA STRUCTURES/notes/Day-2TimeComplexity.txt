@@ -1,0 +1,210 @@
+Analysis of an Algorithm
+
+In order to evaluate Algorithm we need 2 factors
+1) Time Complexity
+2) Space Complexity
+
+1) Time Complexity
+The amount of time required to compile and execute the program is called time
+complexity
+
+
+
+2) Space Complexity
+The amount of space occupied by the program is called as space complexity.
+
+
+Steps to Calculate Time Complexity
+1) Identify no.of Blocks
+    a) Declaration -1 Block      
+    b) Initialization- 1 Block
+       a and b Time complexity will be constant O(1)
+    c) Iterations- 1 Block
+         dependent
+         Independent
+
+       (nested loops) multiplication of Nested loops
+    d) Conditional Statemnets-1 Block
+       If its a conditional we have to consider only one case
+         max(if,else) 
+          select max time complexity
+2) Avoid Constants 
+     2n ,n/2,n+1
+3) Add time complexity of all blocks
+4) Finally the time complexity will be higher order in equation
+
+    Ex:1 for(i=0;i<=n;i++)   n+1 times
+         {
+          --------
+          }
+
+Time Complexity of the above code is O(n)
+the  worst case  time complexity is always representing  O(n) in upper bound
+  ex: 2
+       for(i=1;i<=n;i=i*2)
+{
+===
+==                           
+
+}
+
+                      2pow k <=n
+                     k=log n
+                          2
+time complexity= O(log n)
+		      2
+
+ex: 3
+for(i=0;i<=n;i++)
+{
+for(j=0;j<=n;j++)
+{
+for(k=0;k<=n;k++)
+{
+---
+}
+---
+}
+---
+}
+time complexity=O(n)
+
+Analyze the time complexity of the following Algorithms.
+1)
+Start
+Read a,b   1
+c=a+b      1
+print c    1
+stop
+f(n)=3
+
+2) Start
+   Read n
+   i=1
+   while(i<=n/2)
+   print i
+   i++    
+   stop
+  f(n)=1+1+n/2+1+n/2+n/2
+      =3(n/2)+3
+      =(n/2)+1
+      =log(n/2)+1
+      =1/2(logn)+1
+      =logn
+3) start
+   read n        1
+   for i=1 to n  n+1
+   sum=sum+i     n
+   print sum     1
+   stop 
+4) start
+   read            1
+   for i=1 to n   n+1
+   for j=1 to n   n+1
+   print *         n(n)
+   stop
+5)start
+  read n             1
+  for i=1 to n       n+1
+  for j=1 to n/2     (n/2+1)n
+  sum=sum+a[i][j]    n(n/2)
+  print sum          1
+  stop
+
+Asymptotic Notations
+ mathematical representation of time complexity we use notations.
+In order to find the time complexity of an algorithm we use asymptotic notations.
+there are 3 types
+1) Big-O(worst case)--O(n)
+2) Omega(best case)---O(1)
+3) Theta( Avg case)---O(logn)
+
+1) Big-O
+  It gives you the upper bound of an algorithm that is worst case time complexity of an algorithm
+  It is expressed as
+  lef f(n) and g(n) are two functions such that f(n)=O(g(n))
+  if there exists a constant c,if and only if f(n)<=c.g(n)for all n>=no
+
+2) Omega-
+It gives lower bound of an  algorithm that is it gives the best case time complexity of an algorithm.
+Mathematically it is expressed as let f(n) and g(n) are two functions
+such that f(n)=Omega(g(n)).If there exists a constant c if and only if f(n)>=c.g(n)
+for all n>=n0
+3) Theta
+It gives the average case time complexity of an algorithm. Mathematically it is expressed
+as let f(n) and g(n) are two functions.
+such that f(n)=theta(g(n)) if there exists a constant c1 and c2,if and only if
+c1.g(n)<=f(n)<=c2.g(n) for all n>=n0.
+
+calculate the time complexity for the following algorithm
+(wort case-Big O notation)
+start
+read
+sum=0
+for i=1 to n
+sum=sum+i
+print sum
+stop
+
+f(n)=2n+4
+f(n)<=c.g(n)
+2n+4<=2n+4n
+2n+4<=6n
+put n=1
+2+4<=6
+put n=2
+8<=12
+f(n)<=6n
+f(n)<=c.g(n)
+c-constant
+g(n)=n
+g(n)=O(n)
+
+
+2)calculate the time complexity of the given function 
+f(n)=3n^2+3n+4
+  f(n)<=c.g(n)
+3n^2+3n+4<=3n^2+3n^2+4n^2
+3n^2+3n+4<=10n^2
+f(n)<=c.g(n)
+n=1
+
+O(n^2)
+
+3) calculate the time complexity of the given function
+ best case
+start       0
+read n      1
+sum=0       1
+for i=1 to n  n+1
+sum=sum+i     n
+print sum     1
+stop
+
+   f(n)=2n+4
+    f(n)=omega(g(n))
+     f(n)>=c.g(n)
+     2n+4>=2n
+     put n=1
+     put n=2
+     f(n)>=c.g(n)
+
+      g(n)=n
+     omega(n)
+
+4) calculate the time complexity of the given function best case
+   f(n)=3n^2+3n+2
+   f(n)>=c.g(n)
+   3n^2+3n+2>=3n^2
+   put n=1
+omega(n^2)
+5) Theta average case
+
+c1.g(n)<=f(n)<=c2.g(n)
+f(n)=2n+4
+c1.g(n)<=2n+4<=c2.g(n)
+2n<+2n+4<=6n
+c1.g(n)     c2.g(n)
+wort        best
+best case time complexity is the answer for this solution
+theta(n)

@@ -1,0 +1,138 @@
+DATA STRUCTURES
+Course Title-DATA STRUCTURES
+Course Code-24SC1203
+L-T-P-S Sructure-3-0-2-4
+Credits-5
+
+TextBook:
+1.Mark Allen Weiss-Data Structures and Algorithm Analysis in C 2010,Second Edition
+,Pearson Education
+2.Ellis Horowitz, Fundamental of Data Structures in C, Second Edition in C,2015.
+NPTEL:
+course
+Algorithms-and-data Structures
+
+Course Objective:
+
+The fundamental study, analysis and implementation of basic data structures & algorithms
+for the development of Realtime practical application.
+
+Data Structures:
+Collecting and organizing of data is called data structure.
+2 types:
+1)Linear Data Structures
+2) Non-Linear Data Structures
+
+1)Linear Data Structures
+Linear Data Structures are a type of data structure in computer science where data elements are arranged sequentially or linearly. Each element has a previous and next adjacent, except for the first and last elements.
+Characteristics of Linear Data Structure:
+a)Sequential Organization
+b) Order Preservation
+c) Fixed or Dynamic Size
+d) Efficient Access
+1) Linear Data Structures
+Arrays
+Stacks
+Queues
+LinkedList
+
+2)Non-Linear Data Structures
+Data structures where data elements are not arranged sequentially or linearly are called non-linear data structures. 
+
+In a non-linear data structure.
+Trees and Graphs
+
+Non-Sequential Organization
+Data elements are not arranged sequentially; they are connected in a hierarchical or network-like structure.
+Dynamic Memory Utilization
+Non-linear structures often use pointers or references, enabling efficient use of memory for dynamic data representation.
+Non-Fixed Size
+
+CO-1
+Algorithm Analysis
+Asymptotic Notations
+Sorting Techniques
+
+
+Algorithm:
+
+Characteristics of an Algorithm;
+1)Input
+zero (or) more wee defined i/ps
+2) Output
+should have at least one o/p
+3) Unambiguous/Definiteness
+Every statement must have single meaning
+   Read a
+   Read b
+4)Finiteness
+Steps must be countable while(1)
+                        {
+                         printf("hello");
+                         }
+5)Effectiveness
+at last we will get ultimate output 
+
+how to write an algorithm
+
+sum of 2 nos
+step 1: Start/begin
+step 2: Read a,b   input/enter
+step 3: sum=a+b
+step 4: print sum
+step 5: stop/end
+
+
+Greatest among 3 nos
+step 1: start
+step 2: Read a,b,c
+step 3: if a>b then goto step 4
+         otherwise goto step 5
+step 4: if a>c then
+        print a is largest otherwise
+        print c is largest
+step 5: if b>c then
+        print b is largest otherwise
+        print c is largest
+step 6: stop
+
+
+Write an algorithm &  flow chart to read a number and
+check whether it is +ve or -ve
+step 1: start
+step 2: read number n
+step 3: if(n>0)
+     3.1:print number is +ve
+step 4: else
+     4.1 : print number is -ve
+
+step 5: stop
+To check whether the given number is positive /negative or zero
+
+
+step 1: Start
+step 2: Read n
+step 3: if(n>0)
+     3.1: print it is +ve
+step 4: else if(n<0)
+      4.1: print it is "-ve"
+step 5: else
+        print it is equal to "0"
+step 6: stop
+
+
+ 
+Analysis of an Algorithm
+
+In order to evaluate Algorithm we need 2 factors
+1) Time Complexity
+2) Space Complexity
+
+1) Time Complexity
+The amount of time required to compile and execute the program is called time
+complexity
+
+
+
+2) Space Complexity
+The amount of space occupied by the program is called as space complexity.

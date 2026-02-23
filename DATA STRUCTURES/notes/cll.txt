@@ -1,0 +1,234 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+struct node *head = NULL;
+
+void beginsert();
+void lastinsert();
+void insertPos();
+void begin_delete();
+void last_delete();
+void deletePos();
+void display();
+void search();
+
+void main() {
+    int choice = 0;
+    while (choice != 9) {
+        printf("\n1.Insert in beginning\n2.Insert at last\n3.Insert at random position\n4.Delete from Beginning\n5.Delete from last\n6.Delete at random position\n7.Search for an element\n8.Show\n9.Exit\n");
+        printf("\nEnter your choice\n");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                beginsert();
+                break;
+            case 2:
+                lastinsert();
+                break;
+            case 3:
+                insertPos();
+                break;
+            case 4:
+                begin_delete();
+                break;
+            case 5:
+                last_delete();
+                break;
+            case 6:
+                deletePos();
+                break;
+            case 7:
+                search();
+                break;
+            case 8:
+                display();
+                break;
+            case 9:
+                exit(0);
+                break;
+            default:
+                printf("Please enter a valid choice..\n");
+        }
+    } 
+}
+
+void beginsert() {
+    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+    printf("\nEnter the node data: ");
+    scanf("%d", &newNode->data);
+    if (head == NULL) {
+        head = newNode;
+        newNode->next = head;
+    } else {
+        struct node *temp = head;
+        while (temp->next != head)
+            temp = temp->next;
+        newNode->next = head;
+        temp->next = newNode;
+        head = newNode;
+    }
+    printf("\nNode inserted\n");
+}
+
+void lastinsert() {
+    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+    printf("\nEnter Data: ");
+    scanf("%d", &newNode->data);
+    if (head == NULL) {
+        head = newNode;
+        newNode->next = head;
+    } else {
+        struct node *temp = head;
+        while (temp->next != head)
+            temp = temp->next;
+        temp->next = newNode;
+        newNode->next = head;
+    }
+    printf("\nNode inserted\n");
+}
+
+void insertPos()
+{
+struct node *newnode,*temp=head;
+int data,i,pos;
+newnode=(struct node *)malloc(sizeof(struct node ));
+printf("Enter value=");
+scanf("%d",&data);
+newnode->data=data;
+newnode->next=NULL;
+printf("Enter the position to insert=");
+scanf("%d",&pos);
+
+for(i=0;i<pos-1;i++)
+{
+if(temp->next!=head)
+{
+temp=temp->next;
+}
+}
+newnode->next=temp->next;
+temp->next=newnode;
+printf("Node inserted");
+}
+
+
+
+void begin_delete() {
+    if (head == NULL) {
+        printf("\nList is empty\n");
+        return;
+    }
+    struct node *temp = head;
+    if (head->next == head) {
+        head = NULL;
+        free(temp);
+    } else {
+        struct node *last = head;
+        while (last->next != head)
+            last = last->next;
+        last->next = head->next;
+        head = head->next;
+        free(temp);
+    }
+    printf("\nNode deleted\n");
+}
+void last_delete() {
+    if (head == NULL) {
+        printf("\nList is empty\n");
+        return;
+    }
+    struct node *temp = head;
+    if (head->next == head) {
+        head = NULL;
+        free(temp);
+    } else {
+        while (temp->next->next != head)
+            temp = temp->next;
+        struct node *lastNode = temp->next;
+        temp->next = head;
+        free(lastNode);
+    }
+    printf("\nNode deleted\n");
+}
+
+void deletePos() {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    int i, pos;
+    printf("Enter position value to delete = ");
+    scanf("%d", &pos);
+
+    if (pos < 1) {
+        printf("Invalid position!\n");
+        return;
+    }
+
+    if (pos == 1) { // Delete first node
+        begin_delete();
+        return;
+    }
+
+    struct node *temp = head;
+    struct node *prev = NULL;
+
+    for (i = 1; i < pos && temp->next != head; i++) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If position is beyond the length of the list
+    if (i != pos) {
+        printf("Invalid position!\n");
+        return;
+    }
+
+    prev->next = temp->next;
+    free(temp);
+
+    printf("Node deleted\n");
+}
+
+void search() {
+    if (head == NULL) {
+        printf("\nList is empty\n");
+        return;
+    }
+    int key, i = 0, found = 0;
+    printf("\nEnter the value to search: ");
+    scanf("%d", &key);
+
+    struct node *temp = head;
+    do {
+        if (temp->data == key) {
+            printf("\nItem found at position %d\n", i);
+            found = 1;
+            break;
+        }
+        temp = temp->next;
+        i++;
+    } while (temp != head);
+
+    if (!found)
+        printf("\nItem not found\n");
+}
+
+void display() {
+    if (head == NULL) {
+        printf("\nList is empty\n");
+        return;
+    }
+    struct node *temp = head;
+    printf("\nCircular Linked List: ");
+    do {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+    printf("(head)\n");
+}

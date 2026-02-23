@@ -1,0 +1,284 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red251\green2\blue7;\red0\green0\blue0;\red0\green0\blue0;
+\red38\green38\blue38;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c14913\c0;\csgray\c0\c0;\cssrgb\c0\c0\c0;
+\cssrgb\c20000\c20000\c20000;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh16000\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf2 \cb3 DIVISION METHOD IMPLEMENTATION
+\fs24 \cf4 \
+\
+
+\fs28 #include<stdio.h>  \
+int main()  \
+\{  \
+    int size, i, indexes[3];  \
+    int keys[3] = \{10, 11, 12\};  \
+    printf("Enter the size of the Hash Table: ");  \
+    scanf("%d", &size);  \
+    int M = size  ;\
+    for(i = 0; i < 3; i ++)  \
+    \{  \
+        indexes[i] = (keys[i] % M);  \
+    \}  \
+    printf("\\nThe indexes of the values in the Hash Table: ");  \
+    for(i = 0; i < 3; i++)  \
+    \{  \
+        printf("%d ", indexes[i]);  \
+    \}  \
+    return 0;  \
+\}  \
+
+\fs24 \
+
+\fs48 \cf2 SEPERATE CHAINING METHOD IMPLEMENTATION
+\fs24 \cf4 \
+\
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 #include<stdio.h>\
+#include<stdlib.h>\
+\
+#define size 7\
+\
+struct node\
+\{\
+    int data;\
+    struct node *next;\
+\};\
+\
+struct node *chain[size];\
+\
+void init()\
+\{\
+    int i;\
+    for(i = 0; i < size; i++)\
+        chain[i] = NULL;\
+\}\
+\
+void insert(int value)\
+\{\
+    //create a newnode with value\
+    struct node *newNode = malloc(sizeof(struct node));\
+    newNode->data = value;\
+    newNode->next = NULL;\
+\
+    //calculate hash key\
+    int key = value % size;\
+\
+    //check if chain[key] is empty\
+    if(chain[key] == NULL)\
+        chain[key] = newNode;\
+    //collision\
+    else\
+    \{\
+        //add the node at the end of chain[key].\
+        struct node *temp = chain[key];\
+        while(temp->next)\
+        \{\
+            temp = temp->next;\
+        \}\
+\
+        temp->next = newNode;\
+    \}\
+\}\
+\
+void print()\
+\{\
+    int i;\
+\
+    for(i = 0; i < size; i++)\
+    \{\
+        struct node *temp = chain[i];\
+        printf("chain[%d]-->",i);\
+        while(temp)\
+        \{\
+            printf("%d -->",temp->data);\
+            temp = temp->next;\
+        \}\
+        printf("NULL\\n");\
+    \}\
+\}\
+\
+int main()\
+\{\
+    //init array of list to NULL\
+    init();\
+\
+    insert(7);\
+    insert(0);\
+    insert(3);\
+    insert(10);\
+    insert(4);\
+    insert(5);\
+\
+    print();\
+\
+    return 0;\
+\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf4 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs48 \cf2 \cb1 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4  LINEAR AND QUADRATIC PROBING IMPLEMENTATION
+\fs28 \cf4 \
+\
+#include <stdio.h>\
+#include <conio.h>\
+int tsize;\
+\
+int hasht(int key)\
+\{\
+ int i ;\
+ i = key%tsize ;\
+ return i;\
+\}\
+\
+//-------LINEAR PROBING-------\
+int rehashl(int key)\
+\{\
+ int i ;\
+ i = (key+1)%tsize ;\
+ return i ;\
+\}\
+\
+//-------QUADRATIC PROBING-------\
+int rehashq(int key, int j)\
+\{\
+ int i ;\
+ i = (key+(j*j))%tsize ;\
+ return i ;\
+\}\
+\
+void main()\
+\{\
+    int key,arr[20],hash[20],i,n,s,op,j,k ;\
+    clrscr() ;\
+    printf ("Enter the size of the hash table:  ");\
+    scanf ("%d",&tsize);\
+\
+    printf ("\\nEnter the number of elements: ");\
+    scanf ("%d",&n);\
+\
+    for (i=0;i<tsize;i++)\
+ hash[i]=-1 ;\
+\
+    printf ("Enter Elements: ");\
+    for (i=0;i<n;i++)\
+    \{\
+ scanf("%d",&arr[i]);\
+    \}\
+\
+    do\
+    \{\
+ printf("\\n\\n1.Linear Probing\\n2.Quadratic Probing \\n3.Exit \\nEnter your option: ");\
+ scanf("%d",&op);\
+ switch(op)\
+ \{\
+ case 1:\
+     for (i=0;i<tsize;i++)\
+     hash[i]=-1 ;\
+\
+     for(k=0;k<n;k++)\
+     \{\
+  key=arr[k] ;\
+  i = hasht(key);\
+  while (hash[i]!=-1)\
+  \{\
+      i = rehashl(i);\
+  \}\
+  hash[i]=key ;\
+     \}\
+     printf("\\nThe elements in the array are: ");\
+     for (i=0;i<tsize;i++)\
+     \{\
+  printf("\\n  Element at position %d: %d",i,hash[i]);\
+     \}\
+     break ;\
+\
+ case 2:\
+     for (i=0;i<tsize;i++)\
+  hash[i]=-1 ;\
+\
+     for(k=0;k<n;k++)\
+     \{\
+  j=1;\
+  key=arr[k] ;\
+  i = hasht(key);\
+  while (hash[i]!=-1)\
+  \{\
+      i = rehashq(i,j);\
+      j++ ;\
+  \}\
+  hash[i]=key ;\
+     \}\
+     printf("\\nThe elements in the array are: ");\
+     for (i=0;i<tsize;i++)\
+     \{\
+  printf("\\n Element at position %d: %d",i,hash[i]);\
+     \}\
+     break ;\
+\
+ \}\
+    \}while(op!=3);\
+\
+    getch() ;\
+\}\
+\
+/* OUTPUT\
+\
+Enter the size of the hash table:  10\
+\
+Enter the number of elements: 8\
+Enter Elements: 72 27 36 24 63 81 92 101\
+\
+\
+1.Linear Probing\
+2.Quadratic Probing\
+3.Exit\
+Enter your option: 1\
+\
+The elements in the array are:\
+  Element at position 0: -1\
+  Element at position 1: 81\
+  Element at position 2: 72\
+  Element at position 3: 63\
+  Element at position 4: 24\
+  Element at position 5: 92\
+  Element at position 6: 36\
+  Element at position 7: 27\
+  Element at position 8: 101\
+  Element at position 9: -1\
+\
+1.Linear Probing\
+2.Quadratic Probing\
+3.Exit\
+Enter your option: 2\
+\
+The elements in the array are:\
+ Element at position 0: -1\
+ Element at position 1: 81\
+ Element at position 2: 72\
+ Element at position 3: 63\
+ Element at position 4: 24\
+ Element at position 5: 101\
+ Element at position 6: 36\
+ Element at position 7: 27\
+ Element at position 8: 92\
+ Element at position 9: -1\
+\
+1.Linear Probing\
+2.Quadratic Probing\
+3.Exit\
+Enter your option: 3\
+*/\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf4 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+}
