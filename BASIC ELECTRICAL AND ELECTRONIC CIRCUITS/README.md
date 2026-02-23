@@ -49,6 +49,6 @@ This section is maintained to:
 ---
 
 Maintained by  
-**Harsha**  
+**HarshaVardhan**  
 BTech – ECE  
 KL University
